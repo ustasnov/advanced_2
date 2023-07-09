@@ -1,18 +1,12 @@
-function getSpecial({ ...special }) {
-  const {
-    id, name, icon, description = 'Описание не доступно',
-  } = special;
-  return {
-    id, name, icon, description,
-  };
-}
-
-function getSpecials({ ...rest }) {
-  const result = [];
-  rest.special.forEach((val) => {
-    result.push(getSpecial(val));
+function getSpecials(character) {
+  return character.special.map((val) => {
+    const {
+      id, name, icon, description = 'Описание не доступно',
+    } = val;
+    return {
+      id, name, icon, description,
+    };
   });
-  return result;
 }
 
 module.exports = {
